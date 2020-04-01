@@ -1,6 +1,10 @@
 # yamllint Docker image
 
-[![MIT License](https://img.shields.io/github/license/ffurrer2/docker-yamllint)](https://github.com/ffurrer2/docker-yamllint/blob/master/LICENSE)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ffurrer/yamllint)](https://hub.docker.com/r/ffurrer/yamllint/builds)
+[![Docker Cloud Automated Build](https://img.shields.io/docker/cloud/automated/ffurrer/yamllint)](https://hub.docker.com/r/ffurrer/yamllint/builds)
+[![Docker Image Version](https://img.shields.io/docker/v/ffurrer/yamllint?sort=semver)](https://hub.docker.com/r/ffurrer/yamllint/tags)
+[![Docker Image Size](https://img.shields.io/docker/image-size/ffurrer/yamllint/latest)](https://hub.docker.com/r/ffurrer/yamllint/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ffurrer/yamllint)](https://hub.docker.com/r/ffurrer/yamllint)
 
 This repository provides a lightweight alpine-based Docker image for [yamllint](https://github.com/adrienverge/yamllint).
 
