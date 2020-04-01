@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: MIT
+version: '2'
+
+vars:
+  DOCKER_REPO: ffurrer/yamllint
+  DOCKER_TAG: {sh: 'sed -n "s/^ARG YAMLLINT_VERSION=\([0-9]*\.[0-9]*\.[0-9]*\)/\1/p" Dockerfile'}
+  IMAGE_NAME: '{{.DOCKER_REPO}}:{{.DOCKER_TAG}}'
+  SOURCE_COMMIT: {sh: git rev-parse HEAD}
+  DOCKERFILE_PATH: Dockerfile
+
+tasks:
+  default:
+    cmds:
+    - task --list
+    silent: true
+
+  docker:build:
+    desc: Build Docker image
+    vars:
+    cmds:
+    - SOURCE_COMMIT={{.SOURCE_COMMIT}} DOCKERFILE_PATH={{.DOCKERFILE_PATH}} IMAGE_NAME={{.IMAGE_NAME}} ./hooks/build
+    - DOCKER_TAG={{.DOCKER_TAG}} IMAGE_NAME={{.IMAGE_NAME}} DOCKER_REPO={{.DOCKER_REPO}} ./hooks/post_push --dry-run
+
+  docker:test:
+    desc: Test Docker image
+    cmds:
+    - docker-compose --file docker-compose.test.yml run sut
+
+  shellcheck:
+    desc: Lint shell scripts
+    cmds:
+    - shellcheck --check-sourced --color=auto --format=tty --enable=all --shell=bash --severity=style hooks/build hooks/post_push
