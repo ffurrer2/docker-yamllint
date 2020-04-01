@@ -16,7 +16,6 @@ tasks:
 
   docker:build:
     desc: Build Docker image
-    vars:
     cmds:
     - SOURCE_COMMIT={{.SOURCE_COMMIT}} DOCKERFILE_PATH={{.DOCKERFILE_PATH}} IMAGE_NAME={{.IMAGE_NAME}} ./hooks/build
     - DOCKER_TAG={{.DOCKER_TAG}} IMAGE_NAME={{.IMAGE_NAME}} DOCKER_REPO={{.DOCKER_REPO}} ./hooks/post_push --dry-run
@@ -30,3 +29,8 @@ tasks:
     desc: Lint shell scripts
     cmds:
     - shellcheck --check-sourced --color=auto --format=tty --enable=all --shell=bash --severity=style hooks/build hooks/post_push
+
+  yamllint:
+    desc: Lint YAML files
+    cmds:
+    - yamllint --format auto --strict .
