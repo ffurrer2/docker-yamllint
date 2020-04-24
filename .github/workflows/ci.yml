@@ -47,4 +47,4 @@ jobs:
     - name: yamllint
       uses: docker://ffurrer/yamllint:latest
       with:
-        args: ' --format auto --strict .'
+        args: '--format auto --strict .'
