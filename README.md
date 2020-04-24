@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT -->
 # yamllint Docker image
 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ffurrer/yamllint)](https://hub.docker.com/r/ffurrer/yamllint/builds)
