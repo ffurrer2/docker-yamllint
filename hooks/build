@@ -7,7 +7,6 @@ readonly BUILD_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 # shellcheck disable=SC2154
 docker build \
   --build-arg BUILD_DATE="${BUILD_DATE}" \
-  --build-arg VCS_REF="${SOURCE_COMMIT}" \
   --pull \
   --file "${DOCKERFILE_PATH}" \
   --tag "${IMAGE_NAME}" .
