@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 FROM alpine:latest
 
-ARG YAMLLINT_VERSION=1.22.1
+ARG YAMLLINT_VERSION=1.23.0
 
 RUN set -eux; \
     apk add --no-cache python3; \
