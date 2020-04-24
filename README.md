@@ -16,7 +16,7 @@ This repository provides a lightweight alpine-based Docker image for [yamllint](
 
 ### Command line
 
-To lint the yaml files in your current directory, run the following command:
+To lint the yaml files in the current directory, run the following command:
 
 ```bash
 docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint:latest .
@@ -46,7 +46,13 @@ yamllint:
 docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint my-file.yaml
 ```
 
-### Use `yamllint` with options
+### Lint all yaml files in a subdirectory
+
+```bash
+docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint ./subdir
+```
+
+### Use `yamllint` options
 
 ```bash
 docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint --strict --format parsable .
