@@ -10,7 +10,7 @@ This repository provides a lightweight alpine-based Docker image for [yamllint](
 
 ## Supported tags and respective Dockerfile links
 
-- [`1.21.0`, `1.21`, `latest`](https://github.com/ffurrer2/docker-yamllint/blob/master/Dockerfile)
+- [`1.22.0`, `1.22`, `latest`](https://github.com/ffurrer2/docker-yamllint/blob/master/Dockerfile)
 
 ## Usage
 
