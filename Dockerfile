@@ -1,12 +1,17 @@
 # SPDX-License-Identifier: MIT
-FROM alpine:latest
+# docker.io/library/alpine:3.12.0
+FROM alpine@sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
 
+ARG PYTHON3_VERSION=3.8.3-r0
+ARG PY3_PIP_VERSION=20.1.1-r0
 ARG YAMLLINT_VERSION=1.23.0
 
 RUN set -eux; \
-    apk add --no-cache python3; \
-    pip3 install --no-cache-dir --no-compile yamllint==${YAMLLINT_VERSION}; \
-    find /usr/lib/ -type d -name '__pycache__' -exec rm -rf {} +
+	apk add --no-cache python3=${PYTHON3_VERSION}; \
+	apk add --no-cache --virtual .build-deps py3-pip=${PY3_PIP_VERSION}; \
+	pip3 install --no-cache-dir --no-compile yamllint==${YAMLLINT_VERSION}; \
+	apk del .build-deps; \
+	find /usr/lib/ -type d -name '__pycache__' -exec rm -rf {} +
 
 ARG BUILD_DATE
 
@@ -23,5 +28,5 @@ LABEL org.opencontainers.image.authors="Felix Furrer" \
 
 WORKDIR /workdir
 
-ENTRYPOINT [ "/usr/bin/yamllint" ]
-CMD [ "--help" ]
+ENTRYPOINT ["/usr/bin/yamllint"]
+CMD ["--help"]
