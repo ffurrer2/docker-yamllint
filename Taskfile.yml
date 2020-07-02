@@ -24,12 +24,28 @@ tasks:
     cmds:
     - docker-compose --file docker-compose.test.yml run sut
 
+  lint:
+    desc: Run all linters
+    cmds:
+    - task: shellcheck
+    - task: yamllint
+    - task: hadolint
+    silent: true
+
   shellcheck:
     desc: Lint shell scripts
     cmds:
-    - shellcheck --check-sourced --color=auto --format=tty --enable=all --shell=bash --severity=style hooks/build hooks/post_push
+    - shellcheck --check-sourced --color=auto --format=tty --enable=all --shell=bash --severity=style --source-path=./ hooks/build hooks/post_push
+    silent: true
 
   yamllint:
     desc: Lint YAML files
     cmds:
     - yamllint --format auto --strict .
+    silent: true
+
+  hadolint:
+    desc: Lint Dockerfiles
+    cmds:
+    - hadolint --format tty Dockerfile
+    silent: true
