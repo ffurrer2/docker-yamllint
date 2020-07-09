@@ -8,6 +8,7 @@ on:
     - feature/**
     paths-ignore:
     - '**.md'
+    - '.gitignore'
 
 env:
   TASK_VERSION: 2.8.0
