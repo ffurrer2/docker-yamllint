@@ -9,7 +9,8 @@ on:
     - dependabot/**
     paths:
     - '**.md'
-    - '**/.?markdownlint.yml'
+    - '.github/linters/.markdown-lint.yml'
+    - '.github/workflows/markdownlint.yml'
 
 jobs:
   markdownlint:
@@ -21,4 +22,4 @@ jobs:
       uses: nosborn/github-action-markdown-cli@v1.1.1
       with:
         files: .
-        config_file: build/ci/.markdownlint.yml
+        config_file: .github/linters/.markdown-lint.yml
