@@ -12,9 +12,6 @@ on:
     - 'hooks/build'
     - 'hooks/post_push'
     - '.github/workflows/shellcheck.yml'
-  pull_request:
-    branches:
-    - master
 
 jobs:
   shellcheck:

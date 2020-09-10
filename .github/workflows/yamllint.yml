@@ -9,9 +9,6 @@ on:
     - dependabot/**
     paths:
     - '**.ya?ml'
-  pull_request:
-    branches:
-    - master
 
 jobs:
   yamllint:
