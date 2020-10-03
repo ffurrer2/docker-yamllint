@@ -14,6 +14,7 @@ RUN set -eux; \
 	find /usr/lib/ -type d -name '__pycache__' -exec rm -rf {} +
 
 ARG BUILD_DATE
+ARG BUILD_VERSION
 
 LABEL org.opencontainers.image.authors="Felix Furrer" \
 	org.opencontainers.image.created="${BUILD_DATE}" \
@@ -24,7 +25,7 @@ LABEL org.opencontainers.image.authors="Felix Furrer" \
 	org.opencontainers.image.title="yamllint" \
 	org.opencontainers.image.url="https://github.com/ffurrer2/docker-yamllint" \
 	org.opencontainers.image.vendor="Felix Furrer" \
-	org.opencontainers.image.version="${YAMLLINT_VERSION}"
+	org.opencontainers.image.version="${BUILD_VERSION}"
 
 WORKDIR /workdir
 
