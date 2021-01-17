@@ -19,7 +19,7 @@ ARG BUILD_VERSION
 LABEL org.opencontainers.image.authors="Felix Furrer" \
 	org.opencontainers.image.created="${BUILD_DATE}" \
 	org.opencontainers.image.description="A linter for YAML files." \
-	org.opencontainers.image.documentation="https://github.com/ffurrer2/docker-yamllint/blob/master/README.md" \
+	org.opencontainers.image.documentation="https://github.com/ffurrer2/docker-yamllint/blob/main/README.md" \
 	org.opencontainers.image.licenses="GPL-3.0-or-later" \
 	org.opencontainers.image.source="https://github.com/ffurrer2/docker-yamllint.git" \
 	org.opencontainers.image.title="yamllint" \
