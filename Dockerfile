@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MIT
-# docker.io/library/alpine:3.13.0
-FROM alpine@sha256:d9a7354e3845ea8466bb00b22224d9116b183e594527fb5b6c3d30bc01a20378
+# docker.io/library/alpine:3.14.2
+FROM alpine@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
 
-ARG PYTHON3_VERSION=3.8.7-r0
-ARG PY3_PIP_VERSION=20.3.3-r0
+ARG PYTHON3_VERSION=3.9.5-r1
+ARG PY3_PIP_VERSION=20.3.4-r1
 ARG YAMLLINT_VERSION=1.25.0
 
 RUN set -eux; \
