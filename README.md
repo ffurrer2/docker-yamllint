@@ -1,17 +1,12 @@
 <!-- SPDX-License-Identifier: MIT -->
-# yamllint Docker image
 
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ffurrer/yamllint)](https://hub.docker.com/r/ffurrer/yamllint/builds)
-[![Docker Cloud Automated Build](https://img.shields.io/docker/cloud/automated/ffurrer/yamllint)](https://hub.docker.com/r/ffurrer/yamllint/builds)
-[![Docker Image Version](https://img.shields.io/docker/v/ffurrer/yamllint?sort=semver)](https://hub.docker.com/r/ffurrer/yamllint/tags)
-[![Docker Image Size](https://img.shields.io/docker/image-size/ffurrer/yamllint/latest)](https://hub.docker.com/r/ffurrer/yamllint/tags)
-[![Docker Pulls](https://img.shields.io/docker/pulls/ffurrer/yamllint)](https://hub.docker.com/r/ffurrer/yamllint)
+# yamllint Docker image
 
 This repository provides a lightweight alpine-based Docker image for [yamllint](https://github.com/adrienverge/yamllint).
 
 ## Supported tags and respective Dockerfile links
 
-- [`1.25.0`, `1.25`, `latest`](https://github.com/ffurrer2/docker-yamllint/blob/main/Dockerfile)
+- [`1.26.3`, `1.26`, `1`, `latest`](https://github.com/ffurrer2/docker-yamllint/blob/main/Dockerfile)
 
 ## Usage
 
@@ -20,7 +15,7 @@ This repository provides a lightweight alpine-based Docker image for [yamllint](
 To lint the yaml files in the current directory, run the following command:
 
 ```bash
-docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint:latest .
+docker run -it --rm -v "$(pwd):/workdir" ghcr.io/ffurrer2/yamllint:latest .
 ```
 
 ### GitHub Actions
@@ -31,12 +26,12 @@ To use `yamllint` within GitHub Actions, add the following job to your workflow 
 yamllint:
   runs-on: ubuntu-latest
   steps:
-  - name: Checkout
-    uses: actions/checkout@v2
-  - name: yamllint
-    uses: docker://ffurrer/yamllint:latest
-    with:
-      args: '--format github .'
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: yamllint
+      uses: docker://ghcr.io/ffurrer2/yamllint:latest
+      with:
+        args: '--format github .'
 ```
 
 ## Examples
@@ -44,31 +39,31 @@ yamllint:
 ### Lint a single yaml file
 
 ```bash
-docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint my-file.yaml
+docker run -it --rm -v "$(pwd):/workdir" ghcr.io/ffurrer2/yamllint my-file.yaml
 ```
 
 ### Lint all yaml files in a subdirectory
 
 ```bash
-docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint ./subdir
+docker run -it --rm -v "$(pwd):/workdir" ghcr.io/ffurrer2/yamllint ./subdir
 ```
 
 ### Use `yamllint` options
 
 ```bash
-docker run -it --rm -v "$(pwd):/workdir" ffurrer/yamllint --strict --format parsable .
+docker run -it --rm -v "$(pwd):/workdir" ghcr.io/ffurrer2/yamllint --strict --format parsable .
 ```
 
 ### Show help message
 
 ```bash
-docker run -it --rm ffurrer/yamllint
+docker run -it --rm ghcr.io/ffurrer2/yamllint
 ```
 
 ### Show version
 
 ```bash
-docker run -it --rm ffurrer/yamllint --version
+docker run -it --rm ghcr.io/ffurrer2/yamllint --version
 ```
 
 ## License

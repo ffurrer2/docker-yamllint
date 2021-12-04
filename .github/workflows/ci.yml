@@ -12,10 +12,10 @@ on:
     - '.gitignore'
 
 env:
-  TASK_VERSION: 3.2.2
+  TASK_VERSION: 3.9.2
 
 jobs:
-  docker-hub:
+  build:
     runs-on: ubuntu-20.04
     steps:
     - name: Set up task
@@ -32,5 +32,5 @@ jobs:
     - name: Container Scan
       uses: azure/container-scan@v0
       with:
-        image-name: ffurrer/yamllint:latest
+        image-name: ghcr.io/ffurrer2/yamllint:latest
         severity-threshold: UNKNOWN
