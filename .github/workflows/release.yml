@@ -6,8 +6,12 @@ on:
     branches:
     - main
     - feature/**
+    - dependabot/**
     tags:
     - '*.*.*'
+    paths-ignore:
+    - '**.md'
+    - '.gitignore'
 
 env:
   REGISTRY: ghcr.io
