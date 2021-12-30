@@ -13,6 +13,8 @@ on:
 
 env:
   TASK_VERSION: 3.9.2
+  REGISTRY: ghcr.io
+  REPOSITORY: ffurrer2/yamllint
 
 jobs:
   build:
@@ -32,5 +34,5 @@ jobs:
     - name: Container Scan
       uses: azure/container-scan@v0
       with:
-        image-name: ghcr.io/ffurrer2/yamllint:latest
+        image-name: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:latest
         severity-threshold: UNKNOWN
