@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MIT
-FROM docker.io/library/alpine:3.15.4
+FROM docker.io/library/alpine:3.16.0
 
 # https://github.com/adrienverge/yamllint/tags
 ARG YAMLLINT_VERSION=1.26.3
