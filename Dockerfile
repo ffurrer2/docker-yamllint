@@ -1,11 +1,12 @@
 # SPDX-License-Identifier: MIT
-FROM docker.io/library/alpine:3.15.4
+# https://hub.docker.com/_/alpine
+FROM docker.io/library/alpine:3.16.0
 
 # https://github.com/adrienverge/yamllint/tags
 ARG YAMLLINT_VERSION=1.26.3
 
-ARG PYTHON3_VERSION=3.9.7-r4
-ARG PY3_PIP_VERSION=20.3.4-r1
+ARG PYTHON3_VERSION=3.10.4-r0
+ARG PY3_PIP_VERSION=22.1.1-r0
 
 RUN set -eux; \
 	apk add --no-cache python3=${PYTHON3_VERSION}; \
