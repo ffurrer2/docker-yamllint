@@ -27,7 +27,7 @@ yamllint:
   runs-on: ubuntu-latest
   steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: yamllint
       uses: docker://ghcr.io/ffurrer2/yamllint:latest
       with:

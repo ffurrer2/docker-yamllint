@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: MIT
 # https://hub.docker.com/_/alpine
-FROM docker.io/library/alpine:3.16.1
+FROM docker.io/library/alpine:3.16.2
 
 # https://github.com/adrienverge/yamllint/tags
 ARG YAMLLINT_VERSION=1.26.3
 
-ARG PYTHON3_VERSION=3.10.4-r0
+ARG PYTHON3_VERSION=3.10.5-r0
 ARG PY3_PIP_VERSION=22.1.1-r0
 
 RUN set -eux; \
