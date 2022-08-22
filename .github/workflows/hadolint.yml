@@ -6,18 +6,21 @@ on:
     branches:
     - main
     - feature/**
-    - dependabot/**
     paths:
-    - '**/Dockerfile'
+    - '**/Dockerfile*'
     - '.github/workflows/hadolint.yml'
+  pull_request:
+    branches:
+    - main
+    paths:
+    - '**/Dockerfile*'
+    - '.github/workflows/hadolint.yml'
+
+permissions: { }
 
 jobs:
   hadolint:
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: hadolint
-      uses: docker://hadolint/hadolint:latest
-      with:
-        args: 'hadolint --format tty Dockerfile'
+    name: hadolint
+    uses: ffurrer2/shared-workflows/.github/workflows/hadolint.yml@main
+    with:
+      args: 'hadolint --format tty Dockerfile'
