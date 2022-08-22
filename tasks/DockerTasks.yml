@@ -6,8 +6,9 @@ tasks:
   build:
     desc: Build Docker image
     vars:
-      IMAGE_BASE_NAME: { sh: 'sed -n "s/^FROM \(.*\)/\1/p" Dockerfile' }
+      IMAGE_BASE_NAME: { sh: 'sed -n "s/^FROM \(.*\)/\1/p" Dockerfile | tail -n 1' }
       IMAGE_BASE_DIGEST: { sh: 'docker pull {{.IMAGE_BASE_NAME}} | sed -n "s/^Digest: \(.*\)$/\1/p"' }
+      VCS_REF: { sh: git rev-parse HEAD }
     env:
       DOCKER_CONTENT_TRUST: 1
     cmds:
@@ -18,7 +19,7 @@ tasks:
           --label org.opencontainers.image.description='A linter for YAML files.' \
           --label org.opencontainers.image.documentation=https://github.com/ffurrer2/docker-yamllint/blob/main/README.md \
           --label org.opencontainers.image.licenses=GPL-3.0-or-later \
-          --label org.opencontainers.image.revision=9ba4e86ffa9ebdc36a510d8952e5e7f9a2f5f0b2 \
+          --label org.opencontainers.image.revision={{.VCS_REF}} \
           --label org.opencontainers.image.source=https://github.com/ffurrer2/docker-yamllint \
           --label org.opencontainers.image.title=yamllint \
           --label org.opencontainers.image.url=https://github.com/ffurrer2/docker-yamllint \
