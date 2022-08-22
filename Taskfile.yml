@@ -14,7 +14,7 @@ includes:
 vars:
   DOCKER_REGISTRY: ghcr.io
   DOCKER_REPOSITORY: ffurrer2/yamllint
-  DOCKER_TAG: { sh: 'sed -n "s/^ARG YAMLLINT_VERSION=\([0-9]*\.[0-9]*\.[0-9]*\)/\1/p" Dockerfile' }
+  DOCKER_TAG: {sh: 'sed -n "s/^ARG YAMLLINT_VERSION=\([0-9]*\.[0-9]*\.[0-9]*\)/\1/p" Dockerfile'}
   IMAGE_NAME: '{{.DOCKER_REGISTRY}}/{{.DOCKER_REPOSITORY}}:{{.DOCKER_TAG}}'
 
 tasks:
@@ -27,8 +27,12 @@ tasks:
     desc: Run all linters
     cmds:
     - task: dockle:lint
+      vars:
+        IMAGE_NAME: '{{.IMAGE_NAME}}'
     - task: hadolint:lint
     - task: markdownlint:lint
     - task: trivy:image
+      vars:
+        IMAGE_NAME: '{{.IMAGE_NAME}}'
     - task: yamllint:lint
     silent: true

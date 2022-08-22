@@ -6,9 +6,9 @@ tasks:
   build:
     desc: Build Docker image
     vars:
-      IMAGE_BASE_NAME: { sh: 'sed -n "s/^FROM \(.*\)/\1/p" Dockerfile | tail -n 1' }
-      IMAGE_BASE_DIGEST: { sh: 'docker pull {{.IMAGE_BASE_NAME}} | sed -n "s/^Digest: \(.*\)$/\1/p"' }
-      VCS_REF: { sh: git rev-parse HEAD }
+      IMAGE_BASE_NAME: {sh: 'sed -n "s/^FROM \(.*\)/\1/p" Dockerfile | tail -n 1'}
+      IMAGE_BASE_DIGEST: {sh: 'docker pull {{.IMAGE_BASE_NAME}} | sed -n "s/^Digest: \(.*\)$/\1/p"'}
+      VCS_REF: {sh: git rev-parse HEAD}
     env:
       DOCKER_CONTENT_TRUST: 1
     cmds:
